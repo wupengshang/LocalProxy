@@ -1,0 +1,9 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="popup.css"><title>轻量代理</title></head><body>
+<header><div><h1>轻量代理</h1><p>本地 Clash · 按规则访问</p></div><span id="status" class="badge">读取中</span></header>
+<main>
+<section><label for="mode">代理模式</label><select id="mode"><option value="smart">🟢 智能模式 · 命中规则走代理</option><option value="all">🔵 全局模式 · 全部走代理</option><option value="direct">⚪ 直连模式 · 暂停代理</option></select></section>
+<section><div class="section-title"><label for="profile">本机代理</label><button id="addProfile" class="link">＋ 添加</button></div><div class="row"><select id="profile"></select><button id="deleteProfile" class="secondary">删除</button></div><div class="grid"><input id="name" placeholder="名称" aria-label="代理名称"><select id="type" aria-label="代理协议"><option value="PROXY">HTTP</option><option value="SOCKS5">SOCKS5</option><option value="HTTPS">HTTPS</option></select><input id="host" placeholder="127.0.0.1" aria-label="地址"><input id="port" type="number" min="1" max="65535" placeholder="7890" aria-label="端口"></div><button id="saveProfile" class="secondary full">保存代理</button><small>每台电脑可设置不同的本地端口。</small></section>
+<section><div class="section-title"><label for="site">手动代理的网站</label><button id="current" class="link">＋ 添加当前网站</button></div><div class="row"><input id="site" placeholder="例如 example.com"><button id="addSite">添加</button></div><div id="sites" class="sites"></div><small>包含子域名；手动添加的网站优先走代理。</small></section>
+<section><label for="subscription">规则订阅</label><input id="subscription" type="url" placeholder="规则订阅链接"><div class="row subscription-row"><button id="refresh" class="secondary">更新订阅</button><span id="updated" class="muted"></span></div><small>支持常见 GFWList 规则；每天自动更新一次。</small></section>
+<div id="message" role="status"></div>
+</main><script src="rules.js"></script><script src="popup.js"></script></body></html>
